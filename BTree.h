@@ -14,6 +14,10 @@ class BTree
 
 		Node * getStart() const;
 		void setStart(Node *);
+		void printTree();
+
+	private :
+		void printTree(Node *);
 };
 
 #endif

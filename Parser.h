@@ -14,11 +14,14 @@ class Parser
 		Parser(std::string);
 		~Parser();
 
-		BTree * getTree() const;
+		BTree * getTree();
 		std::string getExpression() const;
 
 	private :
-		BTree * expression()
+		BTree * parseExpression(std::string);
+		BTree * parseTerme(std::string);
+		BTree * parseFactor(std::string);
+		BTree * parseValue(std::string);
 };
 
 #endif

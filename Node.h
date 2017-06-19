@@ -2,7 +2,6 @@
 #define NODE
 
 #include <string>
-#include "BTree.h"
 
 class Node
 {
@@ -21,8 +20,6 @@ class Node
 		std::string getContent() const;
 		void setLeft(Node *);
 		void setRight(Node *);
-		void setLeft(BTree *);
-		void setRight(BTree *);
 		void setContent(std::string);
 };
 

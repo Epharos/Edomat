@@ -6,91 +6,97 @@ using namespace std;
 
 BTree::BTree()
 {
-	this->start = NULL;
+	start = NULL;
 }
 
 BTree::BTree(Node * s)
 {
-	this->start = s;
+	start = s;
 }
 
 BTree::~BTree()
 {
-	if(this->start != NULL)
-		delete this->start;
+	if(start != NULL)
+		delete start;
 }
 
 Node * BTree::getStart() const
 {
-	return this->start;
+	return start;
 }
 
 void BTree::setStart(Node * n)
 {
-	this->start = n;
+	start = n;
+}
+
+void BTree::printTree()
+{
+	printTree(getStart());
+}
+
+void BTree::printTree(Node * n)
+{
+	cout << "[";
+	if(n->getLeft() != NULL)
+		printTree(n->getLeft());
+	cout << " " << n->getContent() << " ";
+	if(n->getRight() != NULL)
+		printTree(n->getRight());
+	cout << "]";
 }
 
 /* ----------------- */
 
 Node::Node()
 {
-	this->left = NULL;
-	this->right = NULL;
-	this->content = "";
+	left = NULL;
+	right = NULL;
+	content = "";
 }
 
 Node::Node(Node * l, Node * r, string c)
 {
-	this->left = l;
-	this->right = r;
-	this->content = c;
+	left = l;
+	right = r;
+	content = c;
 }
 
 Node::~Node()
 {
-	if(this->left != NULL)
-		delete this->left;
+	if(left != NULL)
+		delete left;
 
-	if(this->right != NULL)
-		delete this->right;
+	if(right != NULL)
+		delete right;
 }
 
 Node * Node::getLeft() const
 {
-	return this->left;
+	return left;
 }
 
 Node * Node::getRight() const
 {
-	return this->right;
+	return right;
 }
 
 string Node::getContent() const
 {
-	return this->content;
+	return content;
 }
 
 void Node::setLeft(Node * n)
 {
-	this->left = n;
+	left = n;
 }
 
 void Node::setRight(Node * n)
 {
-	this->right = n;
-}
-
-void Node::setLeft(BTree * n)
-{
-	this->setLeft(n->getStart());
-}
-
-void Node::setRight(BTree * n)
-{
-	this->setRight(n->getStart());
+	right = n;
 }
 
 void Node::setContent(string s)
 {
-	this->content = s;
+	content = s;
 }
